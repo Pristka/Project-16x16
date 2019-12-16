@@ -11,6 +11,7 @@ public class Multiplayer {
 	Server s;
 	Player p;
 	String dataReader;
+    boolean notServer;
 	public Multiplayer(GameplayScene host, String hostIP, int port) {
 		c = new Client( host.applet, hostIP, port );
 		dataReader="";
@@ -22,6 +23,10 @@ public class Multiplayer {
 		s.active();
 		p = new Player(host.applet, host);
 	}
+    boolean checkIfNotServer() {
+
+        return  notServer;
+    }
 	public void writeDataClient(float x, float y, String name) {
 		c.write(x+" "+y+":"+name+"\n");
 	}
